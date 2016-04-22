@@ -32,9 +32,20 @@ namespace storage_manger
             writer.WriteStartElement("HardDisk");
             writer.WriteStartElement("Track");
             writer.WriteAttributeString("Size", textBox2.Text);
-            writer.WriteStartElement("Sector");
+            writer.WriteStartElement("Sector"); //<Sector>
             writer.WriteAttributeString("Size", textBox1.Text);
-                                           
+            long x = long.Parse(textBox2.Text);
+            long y = long.Parse(textBox1.Text);
+            long div = x / y;
+            writer.WriteString(div.ToString());
+
+            writer.WriteEndElement();// </Sector>
+            writer.WriteStartElement("Frag");// Frag
+            writer.WriteString("2");
+            writer.WriteEndElement();//</Frag>
+            writer.WriteEndElement();// </Track>
+            writer.WriteEndElement();// </harddisk>
+            writer.Close();
 
         }
 
