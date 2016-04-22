@@ -8,5 +8,6 @@ namespace storage_manger
 {
     class Calculate
     {
+
     }
 }

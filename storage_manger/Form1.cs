@@ -28,6 +28,14 @@ namespace storage_manger
         private void button1_Click_1(object sender, EventArgs e)
         {
             XmlTextWriter writer = new XmlTextWriter(textBox5.Text +".xml", Encoding.UTF8);
+            writer.Formatting = Formatting.Indented;
+            writer.WriteStartElement("HardDisk");
+            writer.WriteStartElement("Track");
+            writer.WriteAttributeString("Size", textBox2.Text);
+            writer.WriteStartElement("Sector");
+            writer.WriteAttributeString("Size", textBox1.Text);
+            writer.WriteStartElement("frag.");
+            
 
         }
 
