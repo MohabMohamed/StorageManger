@@ -34,8 +34,7 @@ namespace storage_manger
             writer.WriteAttributeString("Size", textBox2.Text);
             writer.WriteStartElement("Sector");
             writer.WriteAttributeString("Size", textBox1.Text);
-            writer.WriteStartElement("frag.");
-            
+                                           
 
         }
 
