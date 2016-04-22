@@ -7,3 +7,6 @@ c:\users\mohab\documents\visual studio 2013\Projects\storage_manger\storage_mang
 c:\users\mohab\documents\visual studio 2013\Projects\storage_manger\storage_manger\obj\Debug\storage_manger.csproj.GenerateResource.Cache
 c:\users\mohab\documents\visual studio 2013\Projects\storage_manger\storage_manger\obj\Debug\storage_manger.exe
 c:\users\mohab\documents\visual studio 2013\Projects\storage_manger\storage_manger\obj\Debug\storage_manger.pdb
+C:\Users\omar adel\Desktop\git\storage_manger\storage_manger\bin\Debug\storage_manger.exe.config
+C:\Users\omar adel\Desktop\git\storage_manger\storage_manger\obj\Debug\storage_manger.exe
+C:\Users\omar adel\Desktop\git\storage_manger\storage_manger\obj\Debug\storage_manger.pdb
