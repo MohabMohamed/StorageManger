@@ -32,10 +32,22 @@ namespace storage_manger
             writer.WriteStartElement("HardDisk");
             writer.WriteStartElement("Track");
             writer.WriteAttributeString("Size", textBox2.Text);
-            writer.WriteStartElement("Sector");
+            writer.WriteStartElement("Sector"); //<Sector>
             writer.WriteAttributeString("Size", textBox1.Text);
-                                           
+            long x = long.Parse(textBox2.Text);
+            long y = long.Parse(textBox1.Text);
+            long div = x / y;
+            writer.WriteString(div.ToString());
 
+            writer.WriteEndElement();// </Sector>
+            writer.WriteStartElement("Frag");// Frag
+            Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
+            writer.WriteString(cl.frag().ToString()); //fragmentation size
+            writer.WriteEndElement();//</Frag>
+            writer.WriteEndElement();// </Track>
+            writer.WriteEndElement();// </harddisk>
+            writer.Close();
+            MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -44,6 +56,11 @@ namespace storage_manger
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
