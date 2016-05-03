@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
+
 namespace storage_manger
 {
     public partial class Form1 : Form
@@ -64,5 +65,12 @@ namespace storage_manger
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
