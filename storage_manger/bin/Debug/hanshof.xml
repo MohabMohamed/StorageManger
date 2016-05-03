@@ -1,0 +1,6 @@
+﻿<HardDisk>
+  <Track Size="32256">
+    <Sector Size="512">63</Sector>
+    <Frag>320000</Frag>
+  </Track>
+</HardDisk>
