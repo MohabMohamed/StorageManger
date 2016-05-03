@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace storage_manger
 {
     public partial class Form1 : Form
     {
+        List<Data> stlist = new List<Data>();
         private XmlDocument xdoc;
         public Form1()
         {
@@ -27,24 +30,25 @@ namespace storage_manger
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            XmlTextWriter writer = new XmlTextWriter(textBox5.Text +".xml", Encoding.UTF8);
-            writer.Formatting = Formatting.Indented;
-            writer.WriteStartElement("HardDisk");
-            writer.WriteStartElement("Track");
-            writer.WriteAttributeString("Size", textBox2.Text);
-            writer.WriteStartElement("Sector"); //<Sector>
-            writer.WriteAttributeString("Size", textBox1.Text);
-            long div = long.Parse(textBox2.Text) / long.Parse(textBox1.Text);
-            writer.WriteString(div.ToString());
-            writer.WriteEndElement();// </Sector>
-            writer.WriteStartElement("Frag");// Frag
-            Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
-            writer.WriteString(cl.frag().ToString()); //fragmentation size
-            writer.WriteEndElement();//</Frag>
-            writer.WriteEndElement();// </Track>
-            writer.WriteEndElement();// </harddisk>
-            writer.Close();
-            MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
+            for (int i = 0; i < dataGridView1.Rows.Count -1 ; i++) {
+               
+               Data st = new Data();
+                st.ID = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                st.Name = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                st.Address = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                stlist.Add(st);
+            }
+            XmlSerializer xs = new XmlSerializer(stlist.GetType());
+            FileStream fs = new FileStream("StudentData.xml", FileMode.OpenOrCreate);
+            xs.Serialize(fs, stlist);
+            fs.Close();
+            dataGridView1.Rows.Clear();
+          
+            //long div = long.Parse(textBox2.Text) / long.Parse(textBox1.Text);
+           
+            //Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
+           
+            //MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -61,5 +65,12 @@ namespace storage_manger
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
