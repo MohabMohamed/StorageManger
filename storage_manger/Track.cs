@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace storage_manger
 {
-    class Track
-    {
-        private List<Sector> records = new List<Sector>();
+    
+    public class Track
+    {   [XmlElement]
+        public List<Sector> Sector = new List<Sector>();
         public void push(Sector sector)
         {
-            records.Add(sector);
+           this.Sector.Add(sector);
         }
     }
 }

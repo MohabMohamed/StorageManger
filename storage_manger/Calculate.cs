@@ -31,5 +31,11 @@ namespace storage_manger
  return (tracksize / sectorsize) * (sectorsize / recordsize);
       }
 
+      public long needed_Records()
+      {
+          return (sectorsize / recordsize); 
+      }
+
+      
     }
 }

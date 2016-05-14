@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 namespace storage_manger
 {
-    class Records
+    
+    public class Records
     {
-        private List<Data> records= new List<Data>() ;
+        [XmlElement]
+        public List<Data> Data= new List<Data>() ;
         public void push(Data data){
-            records.Add(data);
+            this.Data.Add(data);
         }
     }
 }

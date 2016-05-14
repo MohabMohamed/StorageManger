@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Hard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tracks>
+    <Track>
+      <sectors>
+        <Sector>
+          <records>
+            <Records>
+              <dat />
+            </Records>
+          </records>
+        </Sector>
+      </sectors>
+    </Track>
+  </Tracks>
+</Hard>

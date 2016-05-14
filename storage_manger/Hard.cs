@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace storage_manger
 {
-    class Hard
+    
+    [XmlRoot("Hard")]
+    public class Hard
     {
-
-        private List<Track> records = new List<Track>();
+        [XmlElement]
+        public List<Track> Track = new List<Track>();
         public void push(Track track)
         {
-            records.Add(track);
+            this.Track.Add(track);
         }
     }
 }

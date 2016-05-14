@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 namespace storage_manger
 {
     
-        [XmlRoot("Students")]
         public class Data
         {
             [XmlAttribute("ID")]

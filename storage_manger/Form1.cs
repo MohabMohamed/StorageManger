@@ -16,7 +16,7 @@ namespace storage_manger
     public partial class Form1 : Form
     {
         List<Data> stlist = new List<Data>();
-        private XmlDocument xdoc;
+      
         public Form1()
         {
             InitializeComponent();
@@ -30,25 +30,62 @@ namespace storage_manger
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count -1 ; i++) {
+            Hard hd = new Hard();
+            Track tk = new Track();
+            Records rc;
+            Sector sec ;
+            Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text), long.Parse(textBox2.Text));
+            int count = 0;
+           
+            //bool flag = false;
+            long div = long.Parse(textBox2.Text)/long.Parse(textBox1.Text);
+            
+            for (int k = 0; k <div ; k++)
+            {
+                sec = new Sector();
+                for (int j = 0; j < cl.needed_Records(); j++)
+                {
+
+                    if (k > 0)
+                    {
+                        count = count + int.Parse(cl.needed_Records().ToString());
+
+                    }
+                    
+                    Data st = new Data();
+                    st.ID = dataGridView1.Rows[j + count].Cells[0].Value.ToString();
+                    st.Name = dataGridView1.Rows[j + count].Cells[1].Value.ToString();
+                    st.Address = dataGridView1.Rows[j + count].Cells[2].Value.ToString();
+                    stlist.Add(st);
+                    rc = new Records();
+                    rc.push(stlist[stlist.Count - 1]);
+                    stlist.RemoveAt(stlist.Count - 1);
+                    sec.push(rc);
+                   
+                    //int counter = dataGridView1.Rows.Count;
+                    //counter--;
+
+                //    if (counter == 0) {
+                //        flag = true;
+                //        break;
+                //    }
+                }
+            //    if (flag) break;
                
-               Data st = new Data();
-                st.ID = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                st.Name = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                st.Address = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                stlist.Add(st);
+                tk.push(sec);
             }
-            XmlSerializer xs = new XmlSerializer(stlist.GetType());
-            FileStream fs = new FileStream("StudentData.xml", FileMode.OpenOrCreate);
-            xs.Serialize(fs, stlist);
+            hd.push(tk);
+
+           
+
+            XmlSerializer xs = new XmlSerializer(hd.GetType());
+            FileStream fs = new FileStream(textBox5.Text + ".xml", FileMode.OpenOrCreate);
+            xs.Serialize(fs, hd);
             fs.Close();
-            dataGridView1.Rows.Clear();
-          
-            //long div = long.Parse(textBox2.Text) / long.Parse(textBox1.Text);
-           
-            //Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
-           
-            //MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
+            //dataGridView1.Rows.Clear();
+
+            MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
+            MessageBox.Show(cl.needed_Records().ToString());
         }
 
         private void label5_Click(object sender, EventArgs e)
