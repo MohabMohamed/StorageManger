@@ -1,0 +1,284 @@
+commit 944e4519725944e0f79efddc156ee35eb8baa909
+Merge: fd38fe9 16bce72
+Author: omar atallah <omar atallah>
+Date:   Tue May 3 18:56:21 2016 +0200
+
+    data class
+
+diff --cc storage_manger.v12.suo
+index feb1e6b,7e5dde4..b7e563b
+Binary files differ
+diff --cc storage_manger/Data.cs
+index 0000000,731814c..4ea5fa4
+mode 000000,100644..100644
+--- a/storage_manger/Data.cs
++++ b/storage_manger/Data.cs
+@@@ -1,0 -1,22 +1,21 @@@
++ ﻿using System;
++ using System.Collections.Generic;
++ using System.Linq;
++ using System.Text;
++ using System.Threading.Tasks;
++ using System.Xml.Serialization;
++ namespace storage_manger
++ {
+ -    class Data
+ -    {
+++    
++         [XmlRoot("Students")]
+ -        public class Student
+++        public class Data
++         {
++             [XmlAttribute("ID")]
++             public string ID { get; set; }
++             [XmlElement("Name")]
++             public string Name { get; set; }
++             [XmlElement("address")]
++             public string Address { get; set; }
++         }
+ -    }
+++    
++ }
+diff --cc storage_manger/Form1.Designer.cs
+index 299bbef,030c87f..5558f7a
+--- a/storage_manger/Form1.Designer.cs
++++ b/storage_manger/Form1.Designer.cs
+@@@ -39,16 -39,13 +39,19 @@@
+              this.textBox4 = new System.Windows.Forms.TextBox();
+              this.textBox5 = new System.Windows.Forms.TextBox();
+              this.label5 = new System.Windows.Forms.Label();
+ +            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+ +            this.label6 = new System.Windows.Forms.Label();
+++            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+++            this.betngan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+++            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+ +            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+              this.SuspendLayout();
+              // 
+              // button1
+              // 
+-             this.button1.Location = new System.Drawing.Point(84, 182);
+ -            this.button1.Location = new System.Drawing.Point(62, 266);
+++            this.button1.Location = new System.Drawing.Point(223, 225);
+              this.button1.Name = "button1";
+-             this.button1.Size = new System.Drawing.Size(100, 23);
+ -            this.button1.Size = new System.Drawing.Size(83, 31);
+++            this.button1.Size = new System.Drawing.Size(119, 31);
+              this.button1.TabIndex = 0;
+              this.button1.Text = "Add ";
+              this.button1.UseVisualStyleBackColor = true;
+@@@ -107,9 -105,9 +111,9 @@@
+              // 
+              // textBox3
+              // 
+-             this.textBox3.Location = new System.Drawing.Point(84, 91);
+ -            this.textBox3.Location = new System.Drawing.Point(96, 107);
+++            this.textBox3.Location = new System.Drawing.Point(96, 103);
+              this.textBox3.Name = "textBox3";
+-             this.textBox3.Size = new System.Drawing.Size(100, 20);
++             this.textBox3.Size = new System.Drawing.Size(121, 20);
+              this.textBox3.TabIndex = 8;
+              // 
+              // textBox4
+@@@ -121,9 -119,9 +125,9 @@@
+              // 
+              // textBox5
+              // 
+-             this.textBox5.Location = new System.Drawing.Point(84, 145);
+ -            this.textBox5.Location = new System.Drawing.Point(96, 191);
+++            this.textBox5.Location = new System.Drawing.Point(96, 182);
+              this.textBox5.Name = "textBox5";
+-             this.textBox5.Size = new System.Drawing.Size(100, 20);
++             this.textBox5.Size = new System.Drawing.Size(121, 20);
+              this.textBox5.TabIndex = 11;
+              this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+              // 
+@@@ -137,30 -135,11 +141,49 @@@
+              this.label5.Text = "File Name";
+              this.label5.Click += new System.EventHandler(this.label5_Click);
+              // 
+ +            // dataGridView1
+ +            // 
+ +            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+-             this.dataGridView1.Location = new System.Drawing.Point(211, 30);
+++            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+++            this.ID,
+++            this.betngan,
+++            this.Address});
+++            this.dataGridView1.Location = new System.Drawing.Point(272, 26);
+ +            this.dataGridView1.Name = "dataGridView1";
+-             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+++            this.dataGridView1.Size = new System.Drawing.Size(336, 193);
+ +            this.dataGridView1.TabIndex = 12;
+ +            // 
+ +            // label6
+ +            // 
+ +            this.label6.AutoSize = true;
+-             this.label6.Location = new System.Drawing.Point(208, 14);
+++            this.label6.Location = new System.Drawing.Point(269, 9);
+ +            this.label6.Name = "label6";
+ +            this.label6.Size = new System.Drawing.Size(73, 13);
+ +            this.label6.TabIndex = 13;
+ +            this.label6.Text = "Student Data:";
+ +            // 
+++            // ID
+++            // 
+++            this.ID.HeaderText = "ID";
+++            this.ID.Name = "ID";
+++            // 
+++            // betngan
+++            // 
+++            this.betngan.HeaderText = "Name";
+++            this.betngan.Name = "betngan";
+++            // 
+++            // Address
+++            // 
+++            this.Address.HeaderText = "Address";
+++            this.Address.Name = "Address";
+++            // 
+              // Form1
+              // 
+              this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+              this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+-             this.ClientSize = new System.Drawing.Size(479, 217);
+ -            this.ClientSize = new System.Drawing.Size(565, 450);
+++            this.ClientSize = new System.Drawing.Size(615, 271);
+ +            this.Controls.Add(this.label6);
+ +            this.Controls.Add(this.dataGridView1);
+              this.Controls.Add(this.textBox5);
+              this.Controls.Add(this.label5);
+              this.Controls.Add(this.textBox4);
+@@@ -193,8 -171,6 +216,11 @@@
+          private System.Windows.Forms.TextBox textBox4;
+          private System.Windows.Forms.TextBox textBox5;
+          private System.Windows.Forms.Label label5;
+ +        private System.Windows.Forms.DataGridView dataGridView1;
+ +        private System.Windows.Forms.Label label6;
+++        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+++        private System.Windows.Forms.DataGridViewTextBoxColumn betngan;
+++        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+  
+      }
+  }
+diff --cc storage_manger/Form1.cs
+index fbf4118,412bd18..5c406f4
+--- a/storage_manger/Form1.cs
++++ b/storage_manger/Form1.cs
+@@@ -3,16 -3,17 +3,19 @@@ using System.Collections.Generic
+  using System.ComponentModel;
+  using System.Data;
+  using System.Drawing;
+++using System.IO;
+  using System.Linq;
+  using System.Text;
+  using System.Threading.Tasks;
+  using System.Windows.Forms;
+  using System.Xml;
+ -
+++using System.Xml.Serialization;
+  
+  namespace storage_manger
+  {
+      public partial class Form1 : Form
+      {
+++        List<Data> stlist = new List<Data>();
+          private XmlDocument xdoc;
+          public Form1()
+          {
+@@@ -27,24 -28,27 +30,25 @@@
+  
+          private void button1_Click_1(object sender, EventArgs e)
+          {
+--            XmlTextWriter writer = new XmlTextWriter(textBox5.Text +".xml", Encoding.UTF8);
+--            writer.Formatting = Formatting.Indented;
+--            writer.WriteStartElement("HardDisk");
+--            writer.WriteStartElement("Track");
+--            writer.WriteAttributeString("Size", textBox2.Text);
+--            writer.WriteStartElement("Sector"); //<Sector>
+--            writer.WriteAttributeString("Size", textBox1.Text);
+-             long div = long.Parse(textBox2.Text) / long.Parse(textBox1.Text);
+ -            long x = long.Parse(textBox2.Text);
+ -            long y = long.Parse(textBox1.Text);
+ -            long div = x / y;
+--            writer.WriteString(div.ToString());
+ -
+--            writer.WriteEndElement();// </Sector>
+--            writer.WriteStartElement("Frag");// Frag
+--            Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
+--            writer.WriteString(cl.frag().ToString()); //fragmentation size
+--            writer.WriteEndElement();//</Frag>
+--            writer.WriteEndElement();// </Track>
+--            writer.WriteEndElement();// </harddisk>
+--            writer.Close();
+--            MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
+++            for (int i = 0; i < dataGridView1.Rows.Count -1 ; i++) {
+++               
+++               Data st = new Data();
+++                st.ID = dataGridView1.Rows[i].Cells[0].Value.ToString();
+++                st.Name = dataGridView1.Rows[i].Cells[1].Value.ToString();
+++                st.Address = dataGridView1.Rows[i].Cells[2].Value.ToString();
+++                stlist.Add(st);
+++            }
+++            XmlSerializer xs = new XmlSerializer(stlist.GetType());
+++            FileStream fs = new FileStream("StudentData.xml", FileMode.OpenOrCreate);
+++            xs.Serialize(fs, stlist);
+++            fs.Close();
+++            dataGridView1.Rows.Clear();
+++          
+++            //long div = long.Parse(textBox2.Text) / long.Parse(textBox1.Text);
+++           
+++            //Calculate cl = new Calculate(long.Parse(textBox4.Text), long.Parse(textBox1.Text), long.Parse(textBox3.Text),long.Parse(textBox2.Text));
+++           
+++            //MessageBox.Show("fragmentation : " + cl.frag().ToString() + "\n" + "No. of Records/Track : " + cl.RecordsPerTrack().ToString());
+          }
+  
+          private void label5_Click(object sender, EventArgs e)
+diff --cc storage_manger/Form1.resx
+index 1af7de1,1af7de1..0472835
+--- a/storage_manger/Form1.resx
++++ b/storage_manger/Form1.resx
+@@@ -117,4 -117,4 +117,13 @@@
+    <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+++  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+++    <value>True</value>
+++  </metadata>
+++  <metadata name="betngan.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+++    <value>True</value>
+++  </metadata>
+++  <metadata name="Address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+++    <value>True</value>
+++  </metadata>
+  </root>
+diff --cc storage_manger/bin/Debug/StudentData.xml
+index 0000000,0000000..4711099
+new file mode 100644
+--- /dev/null
++++ b/storage_manger/bin/Debug/StudentData.xml
+@@@ -1,0 -1,0 +1,7 @@@
+++<?xml version="1.0"?>
+++<ArrayOfData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+++  <Data ID="12">
+++    <Name>lkfb</Name>
+++    <address>;fdf;dm</address>
+++  </Data>
+++</ArrayOfData>
+diff --cc storage_manger/bin/Debug/storage_manger.exe
+index 5456f6b,46b577f..f9364ac
+Binary files differ
+diff --cc storage_manger/bin/Debug/storage_manger.pdb
+index 8ab815e,30442b0..e07adcb
+Binary files differ
+diff --cc storage_manger/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+index 3fcd72d,44dbefb..bec02d5
+Binary files differ
+diff --cc storage_manger/obj/Debug/storage_manger.csproj.GenerateResource.Cache
+index f44d3ea,de75277..ea5944e
+Binary files differ
+diff --cc storage_manger/obj/Debug/storage_manger.exe
+index 5456f6b,46b577f..f9364ac
+Binary files differ
+diff --cc storage_manger/obj/Debug/storage_manger.pdb
+index 8ab815e,30442b0..e07adcb
+Binary files differ

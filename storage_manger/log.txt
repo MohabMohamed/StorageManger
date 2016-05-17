@@ -1,0 +1,86 @@
+commit 944e4519725944e0f79efddc156ee35eb8baa909
+Merge: fd38fe9 16bce72
+Author: omar atallah <omar atallah>
+Date:   Tue May 3 18:56:21 2016 +0200
+
+    data class
+
+commit fd38fe9bc7ccb743a3f50eed633b0d2335f21002
+Merge: 59ae829 cf7f6db
+Author: omar atallah <omar atallah>
+Date:   Tue May 3 18:06:15 2016 +0200
+
+    Data Grid
+
+commit 16bce7293536b590a5b9281a325329a3f61a7d8e
+Author: MohabMohamed <mohab.m.mohamed@gmail.com>
+Date:   Tue May 3 18:02:51 2016 +0200
+
+    hard-track-sector-record-data classes added
+
+commit 59ae8293f912b764946b47d23071203d76bd789b
+Author: omar atallah <omar atallah>
+Date:   Sun Apr 24 23:05:30 2016 +0200
+
+    mesh 3aref fe eh
+
+commit cf7f6db4bda41957ed5e87d7188f7ec920a69420
+Merge: 55fe9ae 4baf285
+Author: MohabMohamed <mohab.m.mohamed@gmail.com>
+Date:   Sun Apr 24 15:05:59 2016 +0200
+
+    fix a bug,Records/Track and messagebox(frag. , Records/Track)
+
+commit 55fe9aedf4b7ac7f83220dac5a9e8b6816841911
+Author: MohabMohamed <mohab.m.mohamed@gmail.com>
+Date:   Fri Apr 22 22:29:03 2016 +0200
+
+    calculate
+
+commit 4baf285b4c81aecd38e0cfdcf8c060768d458180
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 22:04:00 2016 +0200
+
+    2wel mara men 3'er Save :'D
+
+commit 8a6fe8136e3cc697acfc08876889c8d8922a180c
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 21:45:33 2016 +0200
+
+    A7aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bgdbdgdbdgbdgd
+
+commit 17b8feb91c1604950453099156e3a102ba1bf156
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 21:40:40 2016 +0200
+
+    ya den omy
+
+commit 7746604d995f9aa0637386a31829c3519d114cd3
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 21:37:26 2016 +0200
+
+    Class Cal
+
+commit 19d64c9433bad87bc4a1bf926c5458d906213c09
+Author: MohabMohamed <mohab.m.mohamed@gmail.com>
+Date:   Fri Apr 22 21:14:21 2016 +0200
+
+    5ra
+
+commit 44e24a15da4bbcf73cebcca01fc8a9e28d72cb83
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 21:03:38 2016 +0200
+
+    The GUI 2
+
+commit 03a94d4cd578bfb0591b0f27b2f7e3fdc2441c46
+Author: omar atallah <omar atallah>
+Date:   Fri Apr 22 20:56:09 2016 +0200
+
+    THe GUI
+
+commit afee515688c9e5eb93fee28d9d8f695aa85da5ed
+Author: MohabMohamed <mohab.m.mohamed@gmail.com>
+Date:   Fri Apr 22 17:27:54 2016 +0200
+
+    the start

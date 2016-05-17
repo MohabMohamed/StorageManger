@@ -22,7 +22,7 @@ namespace storage_manger
       public  long  frag ()
         { 
           
-           return  sectorsize  % recordsize *neededSectors() ;
+           return ( sectorsize  % recordsize) *neededSectors() ;
                      
 
         }
